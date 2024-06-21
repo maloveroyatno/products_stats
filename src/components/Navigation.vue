@@ -3,7 +3,7 @@
     <div>
         <v-btn @click="$router.push('/')">Главная страница</v-btn></div>
     <div class="navbar__btns">
-        <v-btn @click="$router.push('/config')">Конфигурация чека</v-btn>
+        <v-btn @click="$router.push('/config')">Меню продуктов</v-btn>
     </div>
     </div>
 </template>
@@ -34,9 +34,9 @@ display: flex;
 align-items: center;
 padding: 15px;
 border-radius: 15px;
+min-width: 320px;
 }
 .v-btn {
-text-transform: none;
 padding: 0 10px;
 font-size: 20px;
 font-family: "Yanone Kaffeesatz", sans-serif;
@@ -44,14 +44,11 @@ font-optical-sizing: auto;
 font-weight: 300;
 font-style: normal;
 border-radius: 5px;
-}
-img{
-height: 40px;
-width: 40px;
+min-width: 10px;
 }
 .navbar__btns {
 margin-left: auto;
 display: flex;
-align-items: center;
+align-items: space-between;
 }
 </style>
