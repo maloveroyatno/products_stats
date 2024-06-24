@@ -10,9 +10,12 @@
       <h1>{{ getDayProds() }}</h1>
 
       <v-container class="page_prods">
-      <h1>{{ dayBreakfast }}</h1>
-      <h1>{{ dayLunch }}</h1>
-      <h1>{{ dayDinner }}</h1>
+      <h1>Breakfast:</h1>
+      <span v-for="prodBreak in dayBreakfast" :key="prodBreak" class="food">{{ prodBreak.name }}<br></span>
+      <h1>Lunch:</h1>
+      <span v-for="prodLunch in dayLunch" class="food">{{ prodLunch.name}}<br></span>
+      <h1>Dinner:</h1>
+      <span v-for="prodDinner in dayDinner" class="food">{{ prodDinner.name}}<br></span>
     </v-container>
   </v-container>
   </v-container>
@@ -34,6 +37,9 @@
 </script>
 
 <style lang="scss" scoped>
+.food{
+  border-bottom: 1px solid black;
+}
 .fill-height {
   padding: 10px;
   min-width: 70%;

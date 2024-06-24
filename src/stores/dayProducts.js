@@ -1,15 +1,16 @@
 // Utilities
 import { defineStore } from 'pinia'
 import axios from 'axios'
+import data from '../assets/food_base.json'
 
 
 export const useAppStore = defineStore('app', {
   state: () => ({
     dayPage: [
-      { id: 1, date: '20.06.2024', breakfast: ["asd"], lunch: ["asdasd"], dinner: ["asdasd"] },
+      { id: 1, date: '20.06.2024', breakfast: [{"name": "Arome Framboise","calories": "37 кКал","proteins": "4,3 г","fats": "0,1 г","carbs": "4,7 г"},{"name": "Arome Framboise","calories": "37 кКал","proteins": "4,3 г","fats": "0,1 г","carbs": "4,7 г"}], lunch: [{"name": "Arome Framboise","calories": "37 кКал","proteins": "4,3 г","fats": "0,1 г","carbs": "4,7 г"}], dinner: [{"name": "Arome Framboise","calories": "37 кКал","proteins": "4,3 г","fats": "0,1 г","carbs": "4,7 г"}] },
       { id: 2, date: '21.06.2024', breakfast: ["2"], lunch: ["2222"], dinner: ["222222"] },
-      { id: 3, date: '22.06.2024', breakfast: [], lunch: [], dinner: [] },
-      { id: 4, date: '23.06.2024', breakfast: [], lunch: [], dinner: [] },
+      { id: 3, date: '22.06.2024', breakfast: ["ddd"], lunch: ["dddd"], dinner: ["ddddd"] },
+      { id: 4, date: '23.06.2024', breakfast: ["vvv"], lunch: ["vvvv"], dinner: ["vvvvv"] },
     ],
     productsAll: [],
   }),
@@ -19,22 +20,19 @@ export const useAppStore = defineStore('app', {
       this.productsAll.push(product)
     },
     async fillAllProductsFromBase() {
-      const response = await axios.get('../assets/food_base.json');
-      this.productsAll = response.data;
-      console.log(this.productsAll)
+      this.productsAll = data
     },
     getProdsPerDay(date, type) {
-      this.fillAllProductsFromBase();
       const foundProduct = this.dayPage.find((day) => day.date === date);
       if (foundProduct!==undefined && foundProduct!==null) {
         if (type === 'breakfast') {
-          return JSON.parse(JSON.stringify(foundProduct.breakfast));
+          return foundProduct.breakfast;
         }
         else if (type === 'lunch') {
-          return JSON.parse(JSON.stringify(foundProduct.lunch));
+          return foundProduct.lunch;
         }
         else if (type === 'dinner') {
-          return JSON.parse(JSON.stringify(foundProduct.dinner));
+          return foundProduct.dinner;
         } 
       }
     },

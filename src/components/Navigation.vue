@@ -1,28 +1,16 @@
 <template>
     <div class="navbar">
     <div>
-        <v-btn @click="$router.push('/')">Главная страница</v-btn></div>
+        <v-btn @click="$router.push('/');">Главная страница</v-btn></div>
     <div class="navbar__btns">
-        <v-btn @click="$router.push('/config')">Меню продуктов</v-btn>
+        <v-btn @click="$router.push('/config'); ">Меню продуктов</v-btn>
     </div>
     </div>
 </template>
 
-<script>
-export default {
-mounted() {
-    window.addEventListener('beforeunload', this.showConfirmation);
-},
-beforeUnmount() {
-    window.removeEventListener('beforeunload', this.showConfirmation);
-},
-methods: {
-    showConfirmation(event) {
-        event.preventDefault();
-        event.returnValue = '';
-    }
-}
-};
+<script setup>
+import { useAppStore } from '@/stores/dayProducts';
+const appStore = useAppStore();
 </script>
 
 <style lang="scss" scoped>
