@@ -25,7 +25,11 @@
                     <span class="pfc">{{ product.carbs }}</span>
                 </v-container>
             </v-cointainer>
+                <v-btn class ="add_card" @click="addCard">Добавить продукт</v-btn>
             <v-pagination :length="Math.ceil(filteredProducts.length / pageSize)" v-model="currentPage" total-visible="8" @click="sliceProducts" > </v-pagination>
+        </v-container>
+        <v-container v-else class="nothing">
+            <span>По вашему запросу ничего не найдено</span>
         </v-container>
     </v-container>
 </template>
@@ -66,6 +70,17 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
+
+.nothing{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    font-weight: 600;
+    font-family: "Yanone Kaffeesatz", sans-serif;
+}
 .fill-height {
     padding: 10px;
     min-width: 70%;
@@ -104,6 +119,21 @@ onMounted(() => {
     align-items: center;
     justify-content: space-between;
     width: 100%;
+}
+.add_card{
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: rgba(205, 240, 220, 0.692);
+    border: 1px solid rgba(0, 0, 0, 0.253);
+    border-radius: 15px;
+    padding: 10px;
+    height: 52px;
+    font-size: 20px;
+    font-family: "Yanone Kaffeesatz", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
 }
 .card_info{
     display: flex;

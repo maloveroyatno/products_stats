@@ -10,12 +10,12 @@
       <h1>{{ getDayProds() }}</h1>
 
       <v-container class="page_prods">
-      <h1>Breakfast:</h1>
-      <span v-for="prodBreak in dayBreakfast" :key="prodBreak" class="food">{{ prodBreak.name }}<br></span>
-      <h1>Lunch:</h1>
-      <span v-for="prodLunch in dayLunch" class="food">{{ prodLunch.name}}<br></span>
-      <h1>Dinner:</h1>
-      <span v-for="prodDinner in dayDinner" class="food">{{ prodDinner.name}}<br></span>
+      <span class="food_title">Завтрак:<br></span>
+        <span v-for="prodBreak in dayBreakfast" :key="prodBreak" class="food">{{ prodBreak.name }}<br></span>
+      <span class="food_title">Обед:<br></span>
+        <span v-for="prodLunch in dayLunch" class="food">{{ prodLunch.name}}<br></span>
+      <span class="food_title">Ужин:<br></span>
+        <span v-for="prodDinner in dayDinner" class="food">{{ prodDinner.name}}<br></span>
     </v-container>
   </v-container>
   </v-container>
@@ -37,8 +37,14 @@
 </script>
 
 <style lang="scss" scoped>
-.food{
+.food_title{
   border-bottom: 1px solid black;
+}
+.food{
+  width: 100%;
+  margin-top: 5px;
+  font-size: 25px;
+  font-weight: 300;
 }
 .fill-height {
   padding: 10px;
@@ -78,6 +84,11 @@
   padding: 10px;
   margin-right: 0px;
   background-color: rgba(255, 228, 196, 0.425);
+  font-size: 30px;
+  font-weight: 800;
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
 }
 
 </style>
